@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+      var w = window.innerWidth || screen.width;		//获取设备宽
+        var root = document.documentElement;  //获得html根元素
+        if (w > 750) {
+            w = 750;
+        }
+        root.style.fontSize = w / 7.5 + "px";
+    </script>
+</head>
+<body>
+    <section class="lotteryBox">
+        <img class="lotteryTit" src="images/lotteryTitle.png"/>
+        <div class="lotteryCont">
+          <div class="lotteryTurntableBox">
+            <!-- 转盘灯 -->
+            <ul class="lotteryDotsBox">
+              <li class="lotteryDotItem"></li>
+              <li class="lotteryDotItem"></li>
+              <li class="lotteryDotItem"></li>
+              <li class="lotteryDotItem"></li>
+              <li class="lotteryDotItem"></li>
+              <li class="lotteryDotItem"></li>
+              <li class="lotteryDotItem"></li>
+              <li class="lotteryDotItem"></li>
+              <li class="lotteryDotItem"></li>
+              <li class="lotteryDotItem"></li>
+              <li class="lotteryDotItem"></li>
+              <li class="lotteryDotItem"></li>
+            </ul>
+            <!-- 转盘指针 -->
+            <div class="lotteryPointerBox" catchtap="lotteryTap">
+              <div class="PointerBox">
+                <div class="PointerCont">
+                  <p>开始<br/>抽奖</p>
+                </div>
+              </div>
+            </div>
+            <div class="lotteryTurntableCont">
+              <!-- 转盘背景 -->
+              <div class="lotteryBgBox">
+                <div class="lotteryBgItem"></div>
+                <div class="lotteryBgItem"></div>
+                <div class="lotteryBgItem"></div>
+              </div>
+              <!-- 转盘商品 -->
+              <ul class="lotteryGoodsBox">
+                <li class="lotteryGoodsItem">
+                  <div class="lotteryGoodsCont">
+                    <div>
+                      <img class="lotteryGoodsImg" src="images/default.png"/>
+                      <p class="lotteryGoodsFont">一等奖</p>
+                    </div>
+                  </div>
+                </li>
+                <li class="lotteryGoodsItem">
+                  <div class="lotteryGoodsCont">
+                    <div>
+                      <img class="lotteryGoodsImg" src="images/default.png"/>
+                      <p class="lotteryGoodsFont">谢谢参与</p>
+                    </div>
+                  </div>
+                </li>
+                <li class="lotteryGoodsItem">
+                  <div class="lotteryGoodsCont">
+                    <div>
+                      <img class="lotteryGoodsImg" src="images/default.png" />
+                      <p class="lotteryGoodsFont">二等奖</p>
+                    </div>
+                  </div>
+                </li>
+                <li class="lotteryGoodsItem">
+                  <div class="lotteryGoodsCont">
+                    <div>
+                      <img class="lotteryGoodsImg" src="images/default.png" />
+                      <p class="lotteryGoodsFont">欢迎光临</p>
+                    </div>
+                  </li>
+                <li class="lotteryGoodsItem">
+                  <div class="lotteryGoodsCont">
+                    <div>
+                      <img class="lotteryGoodsImg" src="images/default.png" />
+                      <p class="lotteryGoodsFont">三等奖</p>
+                    </div>
+                  </div>
+                </li>
+                <li class="lotteryGoodsItem">
+                  <div class="lotteryGoodsCont">
+                    <div>
+                      <img class="lotteryGoodsImg" src="images/default.png" />
+                      <p class="lotteryGoodsFont">优秀奖</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- 点缀 -->
+          <div class="adornBox">
+            <img class="coinImg" src="images/coin.png"/>
+            <img class="coinImg1" src="images/coin.png"/>
+            <img class="coinImg2" src="images/coin.png"/>
+            <img class="redbag" src="images/redbag.png"/>
+            <img class="redbag1" src="images/redbag.png"/>
+          </div>
+          <!-- 转盘投影 -->
+          <div class="lotteryProjection"></div>
+          <div class="lotteryFrequency">剩余<span class="frequencyNum">2</span>次</div>
+          <button class="prizeBtn" type="orange">我的奖品</button>
+        </div>
+      </section>
+</body>
+</html>

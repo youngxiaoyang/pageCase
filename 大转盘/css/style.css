@@ -1,0 +1,104 @@
+*{margin: 0;padding: 0;box-sizing: border-box;}
+ul,li{list-style: none;}
+button{border: none;outline: none;}
+button[type="orange"]{background: #ffb11b;color: #fff;}
+
+/* ****************************抽奖 star************************** */
+body{background-image: linear-gradient(#fe3043, #ff7256);background-attachment:fixed;font-size: .32rem;}
+.lotteryBox{position: relative;padding: .6rem 0;}
+.lotteryTit{display: block;width: 3rem;margin: 0 auto .6rem;}
+.lotteryCont{position: relative;}
+
+/* 抽奖转盘 */
+.lotteryTurntableBox{width: 6.6rem;height: 6.6rem;border-radius: 50%;background: #fff5dd;margin: auto;border: .3rem solid #febe26;background: #ffb11b;padding: .1rem;position: relative;}
+/* .lotteryTurntableBox{width: 580rem;height: 580rem;border-radius: 50%;background: #fff5dd;margin: 32rem auto;border: 10rem solid #ffb11b;box-shadow: 0 0 0 32rem #febe26;position: relative;} */
+/* 转盘灯 */
+.lotteryDotsBox{width: 100%;height: 100%;position: absolute;top: 0;left: 0;}
+.lotteryDotItem{width: .2rem;height: 100%;position: absolute;top: 0;left: 50%;transform: translateX(-50%);pointer-events: none;color: #fff5dd}
+.lotteryDotItem:first-child{transform: translateX(-50%) rotate(15deg);}
+.lotteryDotItem:nth-child(2){transform: translateX(-50%) rotate(30deg);}
+.lotteryDotItem:nth-child(3){transform: translateX(-50%) rotate(45deg);}
+.lotteryDotItem:nth-child(4){transform: translateX(-50%) rotate(60deg);}
+.lotteryDotItem:nth-child(5){transform: translateX(-50%) rotate(75deg);}
+.lotteryDotItem:nth-child(6){transform: translateX(-50%) rotate(90deg);}
+.lotteryDotItem:nth-child(7){transform: translateX(-50%) rotate(105deg);}
+.lotteryDotItem:nth-child(8){transform: translateX(-50%) rotate(120deg);}
+.lotteryDotItem:nth-child(9){transform: translateX(-50%) rotate(135deg);}
+.lotteryDotItem:nth-child(10){transform: translateX(-50%) rotate(150deg);}
+.lotteryDotItem:nth-child(11){transform: translateX(-50%) rotate(165deg);}
+.lotteryDotItem::before,.lotteryDotItem::after{content: '';display: block;width: .16rem;height: .16rem;background: currentColor;position: absolute;left: 0;border-radius: 50%;box-shadow: 0 0 .06rem rgba(255, 255, 255, 0.7);}
+.lotteryDotItem:nth-child(2n)::before,.lotteryDotItem:nth-child(2n)::after{width: .12rem;height: .12rem;background: #ff830a;box-shadow: none;}
+.lotteryDotItem::before{top: -.2rem;}
+.lotteryDotItem::after{bottom: -.2rem;}
+.lotteryDotItem:nth-child(2n)::before{top: -.18rem;}
+.lotteryDotItem:nth-child(2n)::after{bottom: -.18rem;}
+.lotteryDotItem:nth-child(2n-1){animation: flicker .4s linear infinite;}
+.lotteryDotItem:nth-child(2n){animation: flicker .4s .15s linear infinite;}
+@keyframes flicker{
+  0%{opacity: 1;}
+  50%{opacity: 0;}
+  100%{opacity: 1;}
+}
+
+/* 转盘指针 */
+.lotteryPointerBox{width: 1.68rem;height: 1.68rem;background-image: linear-gradient(36deg, #fbae16, #fdbe38 47%, #ffcd5a);border-radius: 50%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);z-index: 1;padding:.2rem;}
+.lotteryPointerBox::before{content: '';display: block;border-bottom: .28rem solid #ffcb56;border-left: .16rem solid transparent;border-right: .18rem solid transparent;position: absolute;top: -.24rem;left: 50%;transform: translateX(-50%);}
+.PointerBox{width: 100%;height: 100%;border-radius: 50%;background-image: linear-gradient( 36deg, #ffdf92, #fdbd4b 53%, #fa9a03);padding:.06rem;}
+.PointerCont{width: 100%;height: 100%;background-image: linear-gradient( 36deg, #ffbe41, #ffcc62 47%, #ffda83);border-radius: 50%;color: #e45609;font-weight: bold;display: flex;display: -webkit-flex;align-items: center;justify-content: center;}
+
+
+/* 转盘内容 */
+.lotteryTurntableCont{width: 100%;height: 100%;background: #fff5dd;position: relative;border-radius: 50%;overflow: hidden;transform: rotate(0);transition: transform 5s ease-in-out;}
+/* 转盘背景 */
+.lotteryBgBox{width: 100%;height: 100%;position: absolute;top: 0;left: 0;border-radius: 50%;overflow: hidden;transform: rotate(-15deg);}
+.lotteryBgItem{width: 50%;height: 50%;transform-origin: right bottom;position: absolute;top: 0;left: 0;transform: skewY(30deg);background: #fbeac0;}
+.lotteryBgItem:nth-child(2){transform: rotate(120deg) skewY(30deg);}
+.lotteryBgItem:nth-child(3){transform: rotate(240deg) skewY(30deg);}
+
+/* 转盘商品 */
+.lotteryGoodsBox{width: 100%;height: 100%;position: relative;border-radius: 50%;overflow: hidden;}
+.lotteryGoodsItem{width: 50%;height: 50%;transform-origin: right bottom;position: absolute;top: 0;left: 0;text-align: center;font-size: .32rem;font-weight: bold;color: #ffb11b;overflow: hidden;}
+.lotteryGoodsItem:nth-child(2){transform: rotate(60deg);}
+.lotteryGoodsItem:nth-child(3){transform: rotate(120deg);}
+.lotteryGoodsItem:nth-child(4){transform: rotate(180deg);}
+.lotteryGoodsItem:nth-child(5){transform: rotate(240deg);}
+.lotteryGoodsItem:nth-child(6){transform: rotate(300deg);}
+.lotteryGoodsCont{width: 100%;height: 100%;transform: rotate(-45deg);}
+
+.lotteryGoodsImg{width: 1.2rem;height: .8rem;margin-top: .8rem;object-fit: cover;}
+.lotteryGoodsFont{margin-top: .1rem;}
+
+/* @keyframes rotate{
+  0%{transform: rotate(0);}
+  100%{transform: rotate(2160deg);}
+} */
+/* 投影 */
+.lotteryProjection{width: 3rem;height: .4rem;border-radius: 50%;background: rgba(0, 0, 0, 0.16);margin: -.3rem auto 0;}
+
+/* 点缀 */
+.adornBox{width: 100%;height: 100%;position: absolute;top: 0;right: 0;pointer-events: none;}
+.coinImg{width: .5rem;position: absolute;top: 5.4rem;left: .6rem;animation: coinTran 1.8s ease-in-out infinite alternate;}
+.coinImg1{display: block;width: .4rem;position: absolute;top: .4rem;right: .6rem;filter: blur(.04rem);transform: rotate(15deg) scaleY(1.3);}
+.coinImg2{width: .3rem;position: absolute;top: .01rem;left: .4rem;filter: blur(.02rem);transform: rotate(-10deg) scaleY(1.5);}
+.redbag{width: .5rem;position: absolute;top: 5rem;right: .4rem;animation: redbag 1.2s ease-in-out infinite alternate;}
+.redbag1{width: .36rem;position: absolute;top: 2.4rem;left: .2rem;filter: blur(.02rem);}
+@keyframes coinTran{
+  0%{transform: translate(0);}
+  100%{transform: translate(.1rem,.2rem);}
+}
+@keyframes redbag{
+  0%{transform: translate(0);}
+  100%{transform: translate(-.1rem,.2rem);}
+}
+
+/* 剩余次数 */
+.lotteryFrequency{width: 2.7rem;background: rgba(0, 0, 0, 0.16);color: #fff;font-size: .28rem;text-align: center;line-height: .48rem;border-radius: .48rem;margin: .3rem auto 0;}
+.frequencyNum{font-weight: bold;color: #febe26;margin: 0 .1rem;}
+.prizeBtn{display: block;width: 4rem;line-height: .7rem;border-radius: .7rem;margin: .5rem auto 0;}
+
+
+
+
+/* ****************************抽奖 end***************************/
+
+
