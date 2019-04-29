@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
-    <title>Document</title>
+    <title>幸运抽奖</title>
     <link rel="stylesheet" href="css/style.css">
     <script>
       var w = window.innerWidth || screen.width;		//获取设备宽
@@ -35,14 +35,14 @@
               <li class="lotteryDotItem"></li>
             </ul>
             <!-- 转盘指针 -->
-            <div class="lotteryPointerBox" catchtap="lotteryTap">
+            <div class="lotteryPointerBox" id="lotteryBtn">
               <div class="PointerBox">
                 <div class="PointerCont">
                   <p>开始<br/>抽奖</p>
                 </div>
               </div>
             </div>
-            <div class="lotteryTurntableCont">
+            <div class="lotteryTurntableCont" id="lotteryCont">
               <!-- 转盘背景 -->
               <div class="lotteryBgBox">
                 <div class="lotteryBgItem"></div>
@@ -116,4 +116,33 @@
         </div>
       </section>
 </body>
+<script>
+  var lotteryBtn = document.getElementById('lotteryBtn');
+  var lotteryCont = document.getElementById('lotteryCont');
+  var animation = {
+    duration: 3000,
+      timingFunction: 'linear',
+      rotate: 0
+  };
+  lotteryBtn.onclick = function(){
+    // 先将转盘复位
+    animation.rotate = animation.rotate % 360 ;
+    lotteryCont.style.WebkitTransform = 'rotate(' + animation.rotate + 'deg)';
+    lotteryCont.style.transition = 'transform 0s linear';
+    // 进行转动
+    setTimeout(function(){
+
+      var num = Math.ceil(Math.random()*360);
+      var rotate = 360*4 +num;
+      animation = {
+        duration: 3000,
+        timingFunction: 'cubic-bezier(0, 0, 0, 1.16)',
+        rotate: rotate
+      };
+    lotteryCont.style.WebkitTransform = 'rotate(' + animation.rotate + 'deg)';
+    lotteryCont.style.transition = 'transform '+ animation.duration +'ms '+animation.timingFunction;
+    },300)
+    
+  }
+</script>
 </html>
