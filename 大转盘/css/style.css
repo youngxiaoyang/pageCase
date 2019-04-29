@@ -5,7 +5,7 @@ button[type="orange"]{background: #ffb11b;color: #fff;}
 
 /* ****************************抽奖 star************************** */
 body{background-image: linear-gradient(#fe3043, #ff7256);background-attachment:fixed;font-size: .32rem;}
-.lotteryBox{position: relative;padding: .6rem 0;}
+.lotteryBox{position: relative;padding: .6rem 0;max-width: 750px;margin: auto;}
 .lotteryTit{display: block;width: 3rem;margin: 0 auto .6rem;}
 .lotteryCont{position: relative;}
 
@@ -50,19 +50,19 @@ body{background-image: linear-gradient(#fe3043, #ff7256);background-attachment:f
 /* 转盘内容 */
 .lotteryTurntableCont{width: 100%;height: 100%;background: #fff5dd;position: relative;border-radius: 50%;overflow: hidden;transform: rotate(0);transition: transform 5s ease-in-out;}
 /* 转盘背景 */
-.lotteryBgBox{width: 100%;height: 100%;position: absolute;top: 0;left: 0;border-radius: 50%;overflow: hidden;transform: rotate(-15deg);}
+.lotteryBgBox{width: 100%;height: 100%;position: absolute;top: 0;left: 0;border-radius: 50%;overflow: hidden;}
 .lotteryBgItem{width: 50%;height: 50%;transform-origin: right bottom;position: absolute;top: 0;left: 0;transform: skewY(30deg);background: #fbeac0;}
 .lotteryBgItem:nth-child(2){transform: rotate(120deg) skewY(30deg);}
 .lotteryBgItem:nth-child(3){transform: rotate(240deg) skewY(30deg);}
 
 /* 转盘商品 */
 .lotteryGoodsBox{width: 100%;height: 100%;position: relative;border-radius: 50%;overflow: hidden;}
-.lotteryGoodsItem{width: 50%;height: 50%;transform-origin: right bottom;position: absolute;top: 0;left: 0;text-align: center;font-size: .32rem;font-weight: bold;color: #ffb11b;overflow: hidden;}
-.lotteryGoodsItem:nth-child(2){transform: rotate(60deg);}
-.lotteryGoodsItem:nth-child(3){transform: rotate(120deg);}
-.lotteryGoodsItem:nth-child(4){transform: rotate(180deg);}
-.lotteryGoodsItem:nth-child(5){transform: rotate(240deg);}
-.lotteryGoodsItem:nth-child(6){transform: rotate(300deg);}
+.lotteryGoodsItem{width: 50%;height: 50%;transform-origin: right bottom;position: absolute;top: 0;left: 0;text-align: center;font-size: .32rem;font-weight: bold;color: #ffb11b;overflow: hidden;transform: rotate(15deg);}
+.lotteryGoodsItem:nth-child(2){transform: rotate(75deg);}
+.lotteryGoodsItem:nth-child(3){transform: rotate(135deg);}
+.lotteryGoodsItem:nth-child(4){transform: rotate(195deg);}
+.lotteryGoodsItem:nth-child(5){transform: rotate(255deg);}
+.lotteryGoodsItem:nth-child(6){transform: rotate(315deg);}
 .lotteryGoodsCont{width: 100%;height: 100%;transform: rotate(-45deg);}
 
 .lotteryGoodsImg{width: 1.2rem;height: .8rem;margin-top: .8rem;object-fit: cover;}
