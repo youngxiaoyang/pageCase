@@ -114,11 +114,75 @@
           <div class="lotteryFrequency">剩余<span class="frequencyNum">2</span>次</div>
           <button class="prizeBtn" type="orange">我的奖品</button>
         </div>
+      <!-- 抽奖弹窗 -->
+      <div class="PopupBox" style="display: none;">
+        <div class="PopupBg"></div>
+        <div class="PopupCenterCont signInPopCont">
+          <img class="signInPopImg" src="images/singinImg.png" mode="widthFix"/>
+          <p class="signInPopFont">签到成功</p>
+        </div>
+      </div>
+
+      <!-- 中奖弹窗 -->
+      <div class="PopupBox" style="display: none;">
+        <div class="PopupBg"></div>
+        <div class="PopupCenterCont winningPopCont">
+          <img class="winningImg" src="images/winning.png" mode="widthFix" />
+          <p class="winningPopTit">恭喜中奖啦！</p>
+          <div class="winningCoupon flex">
+            <div class="winningCouponPic"><span class="winningCouponPicNum">100</span>元</div>
+            <div class="winningCouponBtn">优惠券</div>
+          </div>
+          <p class="winningShopName">【海底捞】赞助</p>
+          <button class="winningPopBtn" type="primary">我的奖品</button>
+        </div>
+      </div>
       </section>
 </body>
 <script>
   var lotteryBtn = document.getElementById('lotteryBtn');
   var lotteryCont = document.getElementById('lotteryCont');
+  // 抽奖概率 对应 一等奖，二等奖，三等奖，优秀奖，欢迎光临，谢谢参与
+  // var probability = [1,2,3,4,5,5];
+  // var probability = [[1],[2,3],[4,7],[7,11],[11,16],[16,21]];
+  var probability = [
+    {
+      prize:"一等奖",
+      probability:1,
+      rotate:0,
+    },
+    {
+      prize:"二等奖",
+      probability:2,
+      rotate:240,
+    },
+    {
+      prize:"三等奖",
+      probability:5,
+      rotate:120,
+    },
+    {
+      prize:"优秀奖",
+      probability:7,
+      rotate:60,
+    },
+    {
+      prize:"欢迎光临",
+      probability:8,
+      rotate:180,
+    },
+    {
+      prize:"谢谢参与",
+      probability:8,
+      rotate:300,
+    },
+  ];
+  // 获取总的概率
+  var probabilitySum = 0;
+  for(var i = 0;i<probability.length;i++){
+    probabilitySum+=probability[i].probability;
+  }
+  console.log(probabilitySum);
   var animation = {
     duration: 3000,
       timingFunction: 'linear',
@@ -131,12 +195,35 @@
     lotteryCont.style.transition = 'transform 0s linear';
     // 进行转动
     setTimeout(function(){
+      // 先随机获取概率值，确定奖项
+      var probabilityNum = parseInt(Math.random()* (probabilitySum + 1));
+      var proNum = 0;  //概率分布值
+      var num = 0;  // 随机角度
+      for(var j = 0; j < probability.length ;j++){
+        proNum += probability[j].probability;
+        if(j===0){
+          if(probabilityNum <= proNum){
+            // 获取奖项对应的角度
+            num = parseInt(Math.random()* 60 + probability[j].rotate);
+            console.log(probability[j].prize);
+            break;
+          }
+        }
+        else{
+          if(probabilityNum <= proNum && probabilityNum > proNum - probability[j].probability ){
+            num = parseInt(Math.random()* 60 + probability[j].rotate);
+            console.log(probability[j].prize);
+            break;
+          }
+        }
+      }
 
-      var num = Math.ceil(Math.random()*360);
       var rotate = 360*4 +num;
+      console.log(rotate);
       animation = {
         duration: 3000,
-        timingFunction: 'cubic-bezier(0, 0, 0, 1.16)',
+        // timingFunction: 'cubic-bezier(0, 0, 0, 1.16)',
+        timingFunction: 'cubic-bezier(0.39, 0.09, 0, 1)',
         rotate: rotate
       };
     lotteryCont.style.WebkitTransform = 'rotate(' + animation.rotate + 'deg)';
